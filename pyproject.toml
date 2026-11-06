@@ -1,0 +1,23 @@
+[project]
+name = "jobmon"
+version = "0.1.0"
+description = "Monitor and debug AI-Pipeline jobs running in Docker containers"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=2.3,<3",
+    "rich>=13",
+]
+
+[project.scripts]
+jobmon = "jobmon.cli:main"
+jobmon-mcp = "jobmon.mcp_server:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
